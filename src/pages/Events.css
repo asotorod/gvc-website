@@ -1,0 +1,15 @@
+.events-page .page-hero { background: linear-gradient(135deg, var(--gvc-black) 0%, #2a2a2a 100%); color: white; padding: var(--spacing-3xl) 0; text-align: center; }
+.events-page .page-hero h1 { font-size: 3rem; margin-bottom: var(--spacing-md); }
+.events-page .page-hero p { font-size: 1.25rem; color: #ccc; }
+.events-list { display: flex; flex-direction: column; gap: var(--spacing-xl); max-width: 800px; margin: 0 auto; }
+.event-card { background: white; border-radius: var(--radius-lg); box-shadow: var(--shadow-md); overflow: hidden; }
+.event-content { padding: var(--spacing-xl); }
+.event-date { display: inline-block; background: var(--gvc-yellow); padding: var(--spacing-xs) var(--spacing-md); border-radius: var(--radius-full); font-size: 0.875rem; font-weight: 600; margin-bottom: var(--spacing-md); }
+.event-content h3 { margin-bottom: var(--spacing-sm); font-size: 1.5rem; }
+.event-location { color: var(--gvc-gray); margin-bottom: var(--spacing-sm); }
+.event-description { color: var(--gvc-gray); line-height: 1.7; }
+.events-empty, .events-loading { text-align: center; padding: var(--spacing-3xl); }
+.events-empty span { font-size: 5rem; display: block; margin-bottom: var(--spacing-lg); }
+.events-empty h3 { margin-bottom: var(--spacing-sm); }
+.events-empty p { color: var(--gvc-gray); }
+@media (max-width: 768px) { .events-page .page-hero h1 { font-size: 2rem; } }
