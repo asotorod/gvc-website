@@ -28,12 +28,14 @@ function Home() {
         <div className="container text-center">
           <h2 className="section-title">Awards & Recognition</h2>
           <p className="section-subtitle">Proud to be recognized as the Best Bus Company in the Bronx</p>
-          <div className="awards-display">
+          <div className="award-image-container">
+            <img src="/best-of-bronx-award.jpg" alt="Ponce Bank Best of the Bronx Award" className="award-image" />
+          </div>
+          <div className="award-years">
             <div className="award-year">2023</div>
-            <div className="award-image-container">
-              <img src="/best-of-bronx-award.png" alt="Ponce Bank Best of the Bronx Award" className="award-image" />
-            </div>
+            <div className="award-year-divider"></div>
             <div className="award-year">2024</div>
+            <div className="award-year-divider"></div>
             <div className="award-year">2025</div>
           </div>
           <div className="award-description">
