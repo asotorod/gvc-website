@@ -9,6 +9,11 @@
 .nav-link { padding: var(--spacing-sm) var(--spacing-md); font-size: 0.9rem; font-weight: 500; color: var(--gvc-gray-dark); text-decoration: none; border-radius: var(--radius-md); transition: all var(--transition-fast); }
 .nav-link:hover { color: var(--gvc-black); background: var(--gvc-gray-light); }
 .nav-link.active { color: var(--gvc-black); background: var(--gvc-yellow); font-weight: 600; }
+.header-right { display: flex; align-items: center; gap: var(--spacing-md); }
+.social-links { display: flex; align-items: center; gap: var(--spacing-sm); }
+.social-link { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background: var(--gvc-gray-light); color: var(--gvc-gray-dark); transition: all var(--transition-fast); }
+.social-link:hover { background: var(--gvc-yellow); color: var(--gvc-black); }
+.nav-social-mobile { display: none; }
 .mobile-menu-btn { display: none; background: none; border: none; cursor: pointer; padding: var(--spacing-sm); }
 .hamburger { display: block; width: 24px; height: 2px; background: var(--gvc-black); position: relative; transition: all var(--transition-fast); }
 .hamburger::before, .hamburger::after { content: ''; position: absolute; width: 24px; height: 2px; background: var(--gvc-black); transition: all var(--transition-fast); }
@@ -21,5 +26,7 @@
   .nav { position: fixed; top: 70px; left: 0; right: 0; background: var(--gvc-white); flex-direction: column; padding: var(--spacing-lg); gap: var(--spacing-sm); box-shadow: var(--shadow-lg); transform: translateY(-100%); opacity: 0; pointer-events: none; transition: all var(--transition-normal); }
   .nav-open { transform: translateY(0); opacity: 1; pointer-events: auto; }
   .nav-link { width: 100%; text-align: center; padding: var(--spacing-md); }
+  .social-links { display: none; }
+  .nav-social-mobile { display: flex; justify-content: center; gap: var(--spacing-md); padding-top: var(--spacing-md); border-top: 1px solid var(--gvc-gray-light); margin-top: var(--spacing-sm); }
   .mobile-menu-btn { display: block; }
 }
