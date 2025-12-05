@@ -24,6 +24,24 @@ function Home() {
           </div>
         </div>
       </section>
+      <section className="section awards-section">
+        <div className="container text-center">
+          <h2 className="section-title">Awards & Recognition</h2>
+          <p className="section-subtitle">Proud to be recognized as the Best Bus Company in the Bronx</p>
+          <div className="awards-display">
+            <div className="award-year">2023</div>
+            <div className="award-image-container">
+              <img src="/best-of-bronx-award.png" alt="Ponce Bank Best of the Bronx Award" className="award-image" />
+            </div>
+            <div className="award-year">2024</div>
+            <div className="award-year">2025</div>
+          </div>
+          <div className="award-description">
+            <h3>GVC LTD Named the Best Bus Company by the Bronx Times</h3>
+            <p>The Bronx Times awarded GVC LTD the title of <strong>"Best Bus Company in the Bronx"</strong> for three consecutive years. This recognition celebrates our commitment to safety, comfort, and reliability. Our modern fleet and passenger-focused approach have made GVC LTD a preferred choice in the Bronx community.</p>
+          </div>
+        </div>
+      </section>
       <section className="section about-preview bg-light">
         <div className="container">
           <div className="about-preview-grid">
