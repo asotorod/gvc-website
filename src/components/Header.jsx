@@ -19,10 +19,10 @@ function Header() {
     <header className="header">
       <div className="header-container">
         <Link to="/" className="logo">
-          <div className="logo-icon">🚌</div>
+          <img src="/GVC LOGO.avif" alt="GVC School Bus" className="logo-image" />
           <div className="logo-text">
             <span className="logo-name">GVC</span>
-            <span className="logo-tagline">School Bus</span>
+            <span className="logo-tagline">SCHOOL BUS</span>
           </div>
         </Link>
         <nav className={`nav ${mobileMenuOpen ? 'nav-open' : ''}`}>
