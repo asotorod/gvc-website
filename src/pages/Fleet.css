@@ -1,0 +1,18 @@
+.fleet-page .page-hero { background: linear-gradient(135deg, var(--gvc-black) 0%, #2a2a2a 100%); color: white; padding: var(--spacing-3xl) 0; text-align: center; }
+.fleet-page .page-hero h1 { font-size: 3rem; margin-bottom: var(--spacing-md); }
+.fleet-page .page-hero p { font-size: 1.25rem; color: #ccc; }
+.fleet-intro { max-width: 700px; margin: 0 auto var(--spacing-3xl); }
+.fleet-intro h2 { margin-bottom: var(--spacing-md); }
+.fleet-intro p { color: var(--gvc-gray); line-height: 1.8; }
+.bus-types-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--spacing-xl); }
+.bus-type-card { background: white; padding: var(--spacing-xl); border-radius: var(--radius-lg); box-shadow: var(--shadow-md); text-align: center; }
+.bus-icon { font-size: 4rem; margin-bottom: var(--spacing-md); }
+.bus-type-card h3 { margin-bottom: var(--spacing-sm); }
+.bus-capacity { color: var(--gvc-yellow-dark); font-weight: 600; margin-bottom: var(--spacing-lg); }
+.bus-features { list-style: none; text-align: left; }
+.bus-features li { padding: var(--spacing-xs) 0; color: var(--gvc-gray); }
+.safety-feature { text-align: center; padding: var(--spacing-lg); }
+.safety-icon { font-size: 2.5rem; display: block; margin-bottom: var(--spacing-md); }
+.safety-feature h4 { margin-bottom: var(--spacing-sm); }
+.safety-feature p { color: var(--gvc-gray); font-size: 0.9rem; }
+@media (max-width: 768px) { .bus-types-grid { grid-template-columns: 1fr; } .fleet-page .page-hero h1 { font-size: 2rem; } }

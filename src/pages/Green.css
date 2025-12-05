@@ -1,0 +1,15 @@
+.green-page .page-hero { background: linear-gradient(135deg, #2E7D32 0%, #1B5E20 100%); color: white; padding: var(--spacing-3xl) 0; text-align: center; }
+.green-page .page-hero h1 { font-size: 3rem; margin-bottom: var(--spacing-md); }
+.green-page .page-hero p { font-size: 1.25rem; color: rgba(255,255,255,0.9); }
+.green-intro { max-width: 800px; margin: 0 auto; }
+.green-intro h2 { color: var(--gvc-green-dark); margin-bottom: var(--spacing-lg); }
+.green-intro p { color: var(--gvc-gray); line-height: 1.8; font-size: 1.1rem; }
+.green-card { background: white; padding: var(--spacing-xl); border-radius: var(--radius-lg); box-shadow: var(--shadow-md); text-align: center; border-top: 4px solid var(--gvc-green); }
+.green-icon { font-size: 3rem; margin-bottom: var(--spacing-md); }
+.green-card h3 { color: var(--gvc-green-dark); margin-bottom: var(--spacing-sm); }
+.green-card p { color: var(--gvc-gray); line-height: 1.7; }
+.goals-list { display: flex; justify-content: center; gap: var(--spacing-3xl); flex-wrap: wrap; }
+.goal-item { text-align: center; }
+.goal-number { display: block; font-size: 4rem; font-weight: 800; color: var(--gvc-green); }
+.goal-text { font-size: 1.1rem; color: var(--gvc-gray); }
+@media (max-width: 768px) { .green-page .page-hero h1 { font-size: 2rem; } .goals-list { flex-direction: column; gap: var(--spacing-xl); } .goal-number { font-size: 3rem; } }
