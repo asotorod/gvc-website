@@ -75,6 +75,9 @@ function Home() {
             <div className="about-preview-image">
               <Link to="/fleet" className="fleet-image-link">
                 <img src="/fleet image.jpg" alt="GVC Fleet" className="fleet-preview-image" />
+                <div className="fleet-image-overlay">
+                  <span className="fleet-image-label">FLEET</span>
+                </div>
               </Link>
             </div>
           </div>
