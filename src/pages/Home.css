@@ -29,10 +29,13 @@
 .stat-number { display: block; font-size: 2.5rem; font-weight: 800; color: var(--gvc-yellow); }
 .about-preview-image { display: flex; justify-content: center; }
 
-/* Fleet Image Link */
-.fleet-image-link { display: block; width: 100%; max-width: 450px; border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-xl); transition: all var(--transition-normal); }
+/* Fleet Image Link with Label Overlay */
+.fleet-image-link { position: relative; display: block; width: 100%; max-width: 450px; border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-xl); transition: all var(--transition-normal); }
 .fleet-image-link:hover { transform: scale(1.02); box-shadow: 0 20px 40px rgba(0,0,0,0.2); }
 .fleet-preview-image { width: 100%; height: auto; display: block; }
+.fleet-image-overlay { position: absolute; inset: 0; background: rgba(0, 0, 0, 0.35); display: flex; align-items: center; justify-content: center; transition: all var(--transition-normal); }
+.fleet-image-link:hover .fleet-image-overlay { background: rgba(0, 0, 0, 0.5); }
+.fleet-image-label { color: white; font-size: 2.5rem; font-weight: 800; letter-spacing: 0.3em; text-shadow: 2px 2px 8px rgba(0,0,0,0.5); }
 
 .image-placeholder { width: 100%; max-width: 400px; aspect-ratio: 4/3; background: linear-gradient(135deg, var(--gvc-yellow) 0%, var(--gvc-yellow-dark) 100%); border-radius: var(--radius-xl); display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: 5rem; box-shadow: var(--shadow-xl); }
 .image-placeholder p { font-size: 1.25rem; font-weight: 700; color: var(--gvc-black); margin-top: var(--spacing-sm); }
@@ -46,4 +49,4 @@
 .cta-section h2 { font-size: 2rem; margin-bottom: var(--spacing-md); }
 .cta-section p { color: var(--gvc-gray-dark); margin-bottom: var(--spacing-xl); }
 @media (max-width: 1024px) { .hero-title { font-size: 2.5rem; } .about-preview-grid { grid-template-columns: 1fr; } .about-stats { justify-content: center; } .award-year { font-size: 2.5rem; } }
-@media (max-width: 768px) { .hero { min-height: 70vh; } .hero-title { font-size: 2rem; } .hero-buttons { flex-direction: column; } .features-section { margin-top: -40px; } .about-stats { flex-direction: column; gap: var(--spacing-md); } .award-years { gap: var(--spacing-md); } .award-year { font-size: 2rem; } .award-year-divider { height: 30px; } .award-image-container { max-width: 350px; } }
+@media (max-width: 768px) { .hero { min-height: 70vh; } .hero-title { font-size: 2rem; } .hero-buttons { flex-direction: column; } .features-section { margin-top: -40px; } .about-stats { flex-direction: column; gap: var(--spacing-md); } .award-years { gap: var(--spacing-md); } .award-year { font-size: 2rem; } .award-year-divider { height: 30px; } .award-image-container { max-width: 350px; } .fleet-image-label { font-size: 1.75rem; } }
