@@ -1,4 +1,6 @@
-.about-page .page-hero { background: linear-gradient(135deg, var(--gvc-black) 0%, #2a2a2a 100%); color: white; padding: var(--spacing-3xl) 0; text-align: center; }
+.about-page .page-hero { position: relative; background: linear-gradient(135deg, var(--gvc-black) 0%, #2a2a2a 100%); color: white; padding: var(--spacing-3xl) 0; text-align: center; min-height: 300px; display: flex; align-items: center; }
+.about-page .page-hero .hero-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(42, 42, 42, 0.7) 100%); }
+.about-page .page-hero .hero-content { position: relative; z-index: 1; width: 100%; }
 .about-page .page-hero h1 { font-size: 3rem; margin-bottom: var(--spacing-md); }
 .about-page .page-hero p { font-size: 1.25rem; color: #ccc; }
 .about-intro { max-width: 800px; margin: 0 auto; text-align: center; }

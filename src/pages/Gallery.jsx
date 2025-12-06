@@ -3,36 +3,31 @@ import api from '../services/api'
 import './Gallery.css'
 
 function Gallery() {
-  const [items, setItems] = useState([])
-  const [loading, setLoading] = useState(true)
+  const [heroImage, setHeroImage] = useState(null);
 
   useEffect(() => {
-    loadGallery()
-  }, [])
-
-  const loadGallery = async () => {
-    try {
-      const data = await api.getGallery()
-      setItems(Array.isArray(data) ? data : [])
-    } catch (error) {
-      console.error('Error loading gallery:', error)
-      setItems([])
-    } finally {
-      setLoading(false)
-    }
-  }
+    const fetchHero = async () => {
+      const hero = await api.getHero('gallery');
+      if (hero && hero.image_url) {
+        setHeroImage(hero.image_url);
+      }
+    };
+    fetchHero();
+  }, []);
 
   return (
     <div className="gallery-page">
-      <section className="page-hero"><div className="container"><h1>Gallery</h1><p>See our fleet, team, and community events</p></div></section>
-      <section className="section"><div className="container">
-        {loading ? (<div className="gallery-loading"><p>Loading gallery...</p></div>
-        ) : items.length > 0 ? (
-          <div className="gallery-grid">{items.map(item => (<div key={item.id} className="gallery-item"><img src={item.url || item.thumbnail_url} alt={item.title} /><div className="gallery-overlay"><h4>{item.title}</h4></div></div>))}</div>
-        ) : (
-          <div className="gallery-empty"><span>📷</span><h3>Gallery Coming Soon</h3><p>Check back soon for photos and videos of our fleet, team, and events!</p></div>
-        )}
-      </div></section>
+      <section 
+        className="page-hero" 
+        style={heroImage ? { backgroundImage: `url(${heroImage})`, backgroundSize: 'cover', backgroundPosition: 'center' } : {}}
+      >
+        <div className="hero-overlay"></div>
+        <div className="container hero-content">
+          <h1>📸 Photo Gallery</h1>
+          <p>See our fleet, team, and community in action</p>
+        </div>
+      </section>
+      <section className="section"><div className="container"><div className="gallery-placeholder text-center"><div className="placeholder-icon">🖼️</div><h2>Gallery Coming Soon</h2><p>We're curating photos of our fleet, team events, and community involvement. Check back soon!</p></div></div></section>
     </div>
   )
 }

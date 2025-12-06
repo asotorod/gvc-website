@@ -1,14 +1,10 @@
-.gallery-page .page-hero { background: linear-gradient(135deg, var(--gvc-black) 0%, #2a2a2a 100%); color: white; padding: var(--spacing-3xl) 0; text-align: center; }
+.gallery-page .page-hero { position: relative; background: linear-gradient(135deg, #9C27B0 0%, #7B1FA2 100%); color: white; padding: var(--spacing-3xl) 0; text-align: center; min-height: 300px; display: flex; align-items: center; }
+.gallery-page .page-hero .hero-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%); }
+.gallery-page .page-hero .hero-content { position: relative; z-index: 1; width: 100%; }
 .gallery-page .page-hero h1 { font-size: 3rem; margin-bottom: var(--spacing-md); }
-.gallery-page .page-hero p { font-size: 1.25rem; color: #ccc; }
-.gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: var(--spacing-lg); }
-.gallery-item { position: relative; aspect-ratio: 4/3; border-radius: var(--radius-lg); overflow: hidden; cursor: pointer; }
-.gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--transition-normal); }
-.gallery-item:hover img { transform: scale(1.05); }
-.gallery-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: var(--spacing-lg); background: linear-gradient(transparent, rgba(0,0,0,0.8)); color: white; transform: translateY(100%); transition: transform var(--transition-normal); }
-.gallery-item:hover .gallery-overlay { transform: translateY(0); }
-.gallery-empty, .gallery-loading { text-align: center; padding: var(--spacing-3xl); }
-.gallery-empty span { font-size: 5rem; display: block; margin-bottom: var(--spacing-lg); }
-.gallery-empty h3 { margin-bottom: var(--spacing-sm); }
-.gallery-empty p { color: var(--gvc-gray); }
+.gallery-page .page-hero p { font-size: 1.25rem; color: rgba(255,255,255,0.9); }
+.gallery-placeholder { padding: var(--spacing-3xl); }
+.placeholder-icon { font-size: 5rem; margin-bottom: var(--spacing-lg); }
+.gallery-placeholder h2 { margin-bottom: var(--spacing-md); }
+.gallery-placeholder p { color: var(--gvc-gray); max-width: 500px; margin: 0 auto; }
 @media (max-width: 768px) { .gallery-page .page-hero h1 { font-size: 2rem; } }

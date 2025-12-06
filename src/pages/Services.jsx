@@ -1,7 +1,21 @@
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import api from '../services/api'
 import './Services.css'
 
 function Services() {
+  const [heroImage, setHeroImage] = useState(null);
+
+  useEffect(() => {
+    const fetchHero = async () => {
+      const hero = await api.getHero('services');
+      if (hero && hero.image_url) {
+        setHeroImage(hero.image_url);
+      }
+    };
+    fetchHero();
+  }, []);
+
   const services = [
     { icon: '🏫', title: 'School Route Transportation', description: 'Daily home-to-school and school-to-home transportation services.', features: ['GPS-tracked buses', 'Trained drivers', 'On-time guarantee', 'Parent notifications'] },
     { icon: '🎯', title: 'Field Trips & Excursions', description: 'Safe transportation for educational field trips and outings.', features: ['Flexible scheduling', 'Competitive rates', 'Experienced drivers', 'All destinations'] },
@@ -12,7 +26,16 @@ function Services() {
   ]
   return (
     <div className="services-page">
-      <section className="page-hero"><div className="container"><h1>Our Services</h1><p>Comprehensive transportation solutions for every need</p></div></section>
+      <section 
+        className="page-hero" 
+        style={heroImage ? { backgroundImage: `url(${heroImage})`, backgroundSize: 'cover', backgroundPosition: 'center' } : {}}
+      >
+        <div className="hero-overlay"></div>
+        <div className="container hero-content">
+          <h1>Our Services</h1>
+          <p>Comprehensive transportation solutions for every need</p>
+        </div>
+      </section>
       <section className="section"><div className="container"><div className="services-grid">{services.map((service, index) => (<div key={index} className="service-detail-card"><div className="service-header"><span className="service-icon-large">{service.icon}</span><h3>{service.title}</h3></div><p>{service.description}</p><ul className="service-features">{service.features.map((feature, i) => (<li key={i}>✓ {feature}</li>))}</ul></div>))}</div></div></section>
       <section className="section bg-light"><div className="container text-center"><h2 className="section-title">Need Transportation Services?</h2><p className="section-subtitle">Contact us today to discuss your transportation needs</p><Link to="/contact" className="btn btn-primary btn-large">Get a Quote</Link></div></section>
     </div>

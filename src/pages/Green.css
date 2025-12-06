@@ -1,4 +1,6 @@
-.green-page .page-hero { background: linear-gradient(135deg, #2E7D32 0%, #1B5E20 100%); color: white; padding: var(--spacing-3xl) 0; text-align: center; }
+.green-page .page-hero { position: relative; background: linear-gradient(135deg, #2E7D32 0%, #1B5E20 100%); color: white; padding: var(--spacing-3xl) 0; text-align: center; min-height: 300px; display: flex; align-items: center; }
+.green-page .page-hero .hero-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(46, 125, 50, 0.85) 0%, rgba(27, 94, 32, 0.85) 100%); }
+.green-page .page-hero .hero-content { position: relative; z-index: 1; width: 100%; }
 .green-page .page-hero h1 { font-size: 3rem; margin-bottom: var(--spacing-md); }
 .green-page .page-hero p { font-size: 1.25rem; color: rgba(255,255,255,0.9); }
 .green-intro { max-width: 800px; margin: 0 auto; }
