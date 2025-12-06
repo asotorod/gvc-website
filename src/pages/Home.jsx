@@ -72,7 +72,11 @@ function Home() {
               <ul className="about-stats"><li><span className="stat-number">50+</span> Buses in Fleet</li><li><span className="stat-number">100+</span> Professional Drivers</li><li><span className="stat-number">30+</span> Years of Service</li></ul>
               <Link to="/about" className="btn btn-primary">Learn More About Us</Link>
             </div>
-            <div className="about-preview-image"><div className="image-placeholder"><span>🚌</span><p>GVC Fleet</p></div></div>
+            <div className="about-preview-image">
+              <Link to="/fleet" className="fleet-image-link">
+                <img src="/fleet image.jpg" alt="GVC Fleet" className="fleet-preview-image" />
+              </Link>
+            </div>
           </div>
         </div>
       </section>
