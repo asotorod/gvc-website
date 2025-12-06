@@ -1,11 +1,30 @@
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import api from '../services/api'
 import './Home.css'
 
 function Home() {
+  const [heroImage, setHeroImage] = useState('/hero-home.jpg'); // fallback to static
+
+  useEffect(() => {
+    const fetchHero = async () => {
+      const hero = await api.getHero('home');
+      if (hero && hero.image_url) {
+        setHeroImage(hero.image_url);
+      }
+    };
+    fetchHero();
+  }, []);
+
   return (
     <div className="home">
       <section className="hero">
-        <div className="hero-background"><div className="hero-overlay"></div></div>
+        <div 
+          className="hero-background" 
+          style={{ backgroundImage: `url(${heroImage})` }}
+        >
+          <div className="hero-overlay"></div>
+        </div>
         <div className="container hero-content">
           <h1 className="hero-title">Safe & Reliable<span className="text-yellow"> Student Transportation</span></h1>
           <p className="hero-subtitle">Serving the Bronx community with professional school bus services since 1995. Your children's safety is our top priority.</p>
