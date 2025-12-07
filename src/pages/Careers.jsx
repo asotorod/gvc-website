@@ -16,13 +16,6 @@ function Careers() {
     fetchHero();
   }, []);
 
-  const positions = [
-    { id: 'driver', title: 'School Bus Driver', type: 'Full-time', description: 'CDL required. Competitive pay and benefits.' },
-    { id: 'attendant', title: 'Bus Attendant', type: 'Full-time', description: 'Assist students and ensure safe transportation.' },
-    { id: 'mechanic', title: 'Mechanic', type: 'Full-time', description: 'Maintain and repair our fleet of buses.' },
-    { id: 'dispatcher', title: 'Dispatcher', type: 'Full-time', description: 'Coordinate routes and communicate with drivers.' }
-  ]
-
   return (
     <div className="careers-page">
       <section 
@@ -36,48 +29,96 @@ function Careers() {
         </div>
       </section>
 
+      {/* Why Work Section */}
       <section className="section">
         <div className="container">
           <div className="careers-intro text-center">
             <h2>Why Work at GVC?</h2>
-            <p>Join a team that values safety, community, and professional growth. We offer competitive pay, benefits, and a supportive work environment.</p>
+            <p>For over 34 years, GVC LTD has been a trusted name in student transportation. Join a team that values safety, community, and professional growth.</p>
+          </div>
+          
+          <div className="benefits-grid">
+            <div className="benefit-card">
+              <div className="benefit-icon">💰</div>
+              <h3>Competitive Pay</h3>
+              <p>We offer industry-leading wages and regular pay increases</p>
+            </div>
+            <div className="benefit-card">
+              <div className="benefit-icon">🏥</div>
+              <h3>Health Benefits</h3>
+              <p>Comprehensive health insurance for you and your family</p>
+            </div>
+            <div className="benefit-card">
+              <div className="benefit-icon">🏖️</div>
+              <h3>Paid Time Off</h3>
+              <p>Generous vacation and holiday schedule</p>
+            </div>
+            <div className="benefit-card">
+              <div className="benefit-icon">📈</div>
+              <h3>Career Growth</h3>
+              <p>Training programs and advancement opportunities</p>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="section bg-light">
+      {/* We're Hiring Section */}
+      <section className="section bg-dark">
         <div className="container">
-          <h2 className="section-title text-center">Open Positions</h2>
-          <div className="positions-grid">
-            {positions.map((position) => (
-              <div key={position.id} className="position-card">
-                <h3>{position.title}</h3>
-                <span className="position-type">{position.type}</span>
-                <p>{position.description}</p>
-                <Link to={`/apply?position=${position.id}`} className="btn btn-primary">Apply Now</Link>
+          <div className="hiring-content">
+            <div className="hiring-text">
+              <h2>We're Hiring!</h2>
+              <p>We're always looking for dedicated professionals to join our growing team. Whether you're an experienced driver or looking to start a new career, we want to hear from you.</p>
+              <ul className="positions-list">
+                <li>School Bus Drivers</li>
+                <li>Bus Attendants / Matrons</li>
+                <li>Mechanics</li>
+                <li>Dispatchers</li>
+                <li>Administrative Staff</li>
+              </ul>
+              <p className="note">CDL training available for qualified candidates</p>
+            </div>
+            <div className="hiring-cta">
+              <div className="cta-card">
+                <h3>Ready to Apply?</h3>
+                <p>Start your career with the Bronx's most trusted school bus company</p>
+                <Link to="/apply" className="btn btn-primary btn-large">Apply Now</Link>
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>
 
+      {/* What We Look For */}
       <section className="section">
-        <div className="container">
-          <h2 className="section-title text-center">Benefits</h2>
-          <div className="grid grid-4">
-            <div className="benefit-item">💰<span>Competitive Pay</span></div>
-            <div className="benefit-item">🏥<span>Health Insurance</span></div>
-            <div className="benefit-item">🏖️<span>Paid Time Off</span></div>
-            <div className="benefit-item">📈<span>Career Growth</span></div>
-          </div>
-        </div>
-      </section>
-
-      <section className="cta-section">
         <div className="container text-center">
-          <h2>Ready to Apply?</h2>
-          <p>Start your career with GVC School Bus today. We're always looking for dedicated professionals.</p>
-          <Link to="/apply" className="btn btn-primary btn-large">Start Application</Link>
+          <h2 className="section-title">What We Look For</h2>
+          <div className="qualities-grid">
+            <div className="quality-item">
+              <span className="quality-icon">✓</span>
+              <span>Safety-focused mindset</span>
+            </div>
+            <div className="quality-item">
+              <span className="quality-icon">✓</span>
+              <span>Reliable and punctual</span>
+            </div>
+            <div className="quality-item">
+              <span className="quality-icon">✓</span>
+              <span>Great with children</span>
+            </div>
+            <div className="quality-item">
+              <span className="quality-icon">✓</span>
+              <span>Team player attitude</span>
+            </div>
+            <div className="quality-item">
+              <span className="quality-icon">✓</span>
+              <span>Clean driving record</span>
+            </div>
+            <div className="quality-item">
+              <span className="quality-icon">✓</span>
+              <span>Professional demeanor</span>
+            </div>
+          </div>
         </div>
       </section>
     </div>
