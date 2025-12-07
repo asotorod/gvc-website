@@ -27,13 +27,14 @@ function Home() {
         </div>
         <div className="container hero-content">
           <h1 className="hero-title">Safe & Reliable<span className="text-yellow"> Student Transportation</span></h1>
-          <p className="hero-subtitle">Serving the Bronx community with professional school bus services since 1995. Your children's safety is our top priority.</p>
+          <p className="hero-subtitle">Serving the Bronx community with professional school bus services since 1991. Your children's safety is our top priority.</p>
           <div className="hero-buttons">
             <Link to="/contact" className="btn btn-primary btn-large">Contact Us</Link>
             <Link to="/careers" className="btn btn-outline btn-large" style={{borderColor: 'white', color: 'white'}}>Join Our Team</Link>
           </div>
         </div>
       </section>
+
       <section className="section features-section">
         <div className="container">
           <div className="grid grid-3">
@@ -43,6 +44,39 @@ function Home() {
           </div>
         </div>
       </section>
+
+      {/* Our Mission Section */}
+      <section className="section mission-section">
+        <div className="container">
+          <div className="mission-grid">
+            <div className="mission-content">
+              <h2 className="mission-title">Our Mission</h2>
+              <p>When parents see their children off in the morning, the last thing they want to do is worry about their well-being on the way to school. With GVC LTD, they don't have to.</p>
+              <p>We're proud to be an award-winning provider of school transportation services in the Bronx, NY. Since 1991, GVC has provided DOE-certified drivers and matrons.</p>
+              <p>In addition to elementary levels, our school bus services offer pre-school pickups and drop offs. We staff our buses with DOE-certified matrons who help kids get on and off our buses.</p>
+              <p className="mission-tagline">Every child arrives to school safely with GVC LTD.</p>
+            </div>
+            <div className="mission-stats">
+              <div className="mission-stat-card">
+                <span className="mission-stat-number">98%+</span>
+                <span className="mission-stat-label">Safety Rating</span>
+                <span className="mission-stat-detail">Average over the last 3 years with NYS DOT</span>
+              </div>
+              <div className="mission-stat-card">
+                <span className="mission-stat-number">34+</span>
+                <span className="mission-stat-label">Years of Service</span>
+                <span className="mission-stat-detail">Proudly serving the Bronx since 1991</span>
+              </div>
+              <div className="mission-stat-card">
+                <span className="mission-stat-number">DOE</span>
+                <span className="mission-stat-label">Certified Staff</span>
+                <span className="mission-stat-detail">All drivers and matrons fully certified</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="section awards-section">
         <div className="container text-center">
           <h2 className="section-title">Awards & Recognition</h2>
@@ -63,13 +97,14 @@ function Home() {
           </div>
         </div>
       </section>
+
       <section className="section about-preview bg-light">
         <div className="container">
           <div className="about-preview-grid">
             <div className="about-preview-content">
-              <h2 className="section-title">Serving Our Community for 30 Years</h2>
+              <h2 className="section-title">Serving Our Community for 34 Years</h2>
               <p>GVC LTD has been a trusted name in student transportation throughout the Bronx. Our commitment to safety, reliability, and professionalism has made us the preferred choice for schools and parents alike.</p>
-              <ul className="about-stats"><li><span className="stat-number">50+</span> Buses in Fleet</li><li><span className="stat-number">100+</span> Professional Drivers</li><li><span className="stat-number">30+</span> Years of Service</li></ul>
+              <ul className="about-stats"><li><span className="stat-number">50+</span> Buses in Fleet</li><li><span className="stat-number">100+</span> Professional Drivers</li><li><span className="stat-number">34+</span> Years of Service</li></ul>
               <Link to="/about" className="btn btn-primary">Learn More About Us</Link>
             </div>
             <div className="about-preview-image">
@@ -83,6 +118,7 @@ function Home() {
           </div>
         </div>
       </section>
+
       <section className="section services-preview">
         <div className="container text-center">
           <h2 className="section-title">Our Services</h2>
@@ -96,6 +132,7 @@ function Home() {
           <Link to="/services" className="btn btn-secondary" style={{marginTop: '2rem'}}>View All Services</Link>
         </div>
       </section>
+
       <section className="cta-section">
         <div className="container text-center">
           <h2>Ready to Join Our Team?</h2>
