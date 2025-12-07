@@ -11,6 +11,89 @@
 .feature-card h3 { font-size: 1.25rem; margin-bottom: var(--spacing-sm); }
 .feature-card p { color: var(--gvc-gray); font-size: 0.95rem; }
 
+/* Mission Section */
+.mission-section {
+  background: var(--gvc-black);
+  padding: var(--spacing-3xl) 0;
+}
+
+.mission-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: var(--spacing-3xl);
+  align-items: center;
+}
+
+.mission-content {
+  color: white;
+}
+
+.mission-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--gvc-yellow);
+  margin-bottom: var(--spacing-xl);
+}
+
+.mission-content p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: var(--spacing-md);
+}
+
+.mission-tagline {
+  font-size: 1.2rem !important;
+  font-weight: 600;
+  color: var(--gvc-yellow) !important;
+  margin-top: var(--spacing-lg) !important;
+  font-style: italic;
+}
+
+.mission-stats {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.mission-stat-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.mission-stat-card:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--gvc-yellow);
+  transform: translateY(-2px);
+}
+
+.mission-stat-number {
+  display: block;
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--gvc-yellow);
+  line-height: 1;
+  margin-bottom: var(--spacing-sm);
+}
+
+.mission-stat-label {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: var(--spacing-xs);
+}
+
+.mission-stat-detail {
+  display: block;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
 /* Awards Section - Redesigned */
 .awards-section { background: var(--gvc-white); padding: var(--spacing-3xl) 0; }
 .award-image-container { margin: var(--spacing-xl) auto; max-width: 500px; }
@@ -48,5 +131,30 @@
 .cta-section { background: var(--gvc-yellow); padding: var(--spacing-3xl) 0; }
 .cta-section h2 { font-size: 2rem; margin-bottom: var(--spacing-md); }
 .cta-section p { color: var(--gvc-gray-dark); margin-bottom: var(--spacing-xl); }
-@media (max-width: 1024px) { .hero-title { font-size: 2.5rem; } .about-preview-grid { grid-template-columns: 1fr; } .about-stats { justify-content: center; } .award-year { font-size: 2.5rem; } }
-@media (max-width: 768px) { .hero { min-height: 70vh; } .hero-title { font-size: 2rem; } .hero-buttons { flex-direction: column; } .features-section { margin-top: -40px; } .about-stats { flex-direction: column; gap: var(--spacing-md); } .award-years { gap: var(--spacing-md); } .award-year { font-size: 2rem; } .award-year-divider { height: 30px; } .award-image-container { max-width: 350px; } .fleet-image-label { font-size: 1.75rem; } }
+
+@media (max-width: 1024px) {
+  .hero-title { font-size: 2.5rem; }
+  .about-preview-grid { grid-template-columns: 1fr; }
+  .about-stats { justify-content: center; }
+  .award-year { font-size: 2.5rem; }
+  .mission-grid { grid-template-columns: 1fr; gap: var(--spacing-2xl); }
+  .mission-stats { flex-direction: row; flex-wrap: wrap; justify-content: center; }
+  .mission-stat-card { flex: 1; min-width: 200px; }
+}
+
+@media (max-width: 768px) {
+  .hero { min-height: 70vh; }
+  .hero-title { font-size: 2rem; }
+  .hero-buttons { flex-direction: column; }
+  .features-section { margin-top: -40px; }
+  .about-stats { flex-direction: column; gap: var(--spacing-md); }
+  .award-years { gap: var(--spacing-md); }
+  .award-year { font-size: 2rem; }
+  .award-year-divider { height: 30px; }
+  .award-image-container { max-width: 350px; }
+  .fleet-image-label { font-size: 1.75rem; }
+  .mission-title { font-size: 2rem; }
+  .mission-stats { flex-direction: column; }
+  .mission-stat-card { min-width: auto; }
+  .mission-stat-number { font-size: 2.5rem; }
+}
