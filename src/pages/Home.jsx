@@ -3,6 +3,28 @@ import { Link } from 'react-router-dom'
 import api from '../services/api'
 import './Home.css'
 
+// Professional SVG Icons
+const Icons = {
+  safety: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+      <path d="M9 12l2 2 4-4"/>
+    </svg>
+  ),
+  clock: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="10"/>
+      <polyline points="12 6 12 12 16 14"/>
+    </svg>
+  ),
+  leaf: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
+      <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
+    </svg>
+  )
+};
+
 function Home() {
   const [heroImage, setHeroImage] = useState('/hero-home.jpg'); // fallback to static
 
@@ -38,9 +60,21 @@ function Home() {
       <section className="section features-section">
         <div className="container">
           <div className="grid grid-3">
-            <div className="feature-card"><div className="feature-icon">🛡️</div><h3>Safety First</h3><p>All drivers are DOE certified with clean driving records. Buses equipped with GPS tracking and cameras.</p></div>
-            <div className="feature-card"><div className="feature-icon">⏰</div><h3>On-Time Service</h3><p>We pride ourselves on punctual pickups and drop-offs, ensuring students arrive at school on time.</p></div>
-            <div className="feature-card"><div className="feature-icon">🌿</div><h3>Green Fleet</h3><p>Committed to sustainability with our growing fleet of clean-energy and low-emission buses.</p></div>
+            <div className="feature-card">
+              <div className="feature-icon">{Icons.safety}</div>
+              <h3>Safety First</h3>
+              <p>All drivers are DOE certified with clean driving records. Buses equipped with GPS tracking and cameras.</p>
+            </div>
+            <div className="feature-card">
+              <div className="feature-icon">{Icons.clock}</div>
+              <h3>On-Time Service</h3>
+              <p>We pride ourselves on punctual pickups and drop-offs, ensuring students arrive at school on time.</p>
+            </div>
+            <div className="feature-card">
+              <div className="feature-icon">{Icons.leaf}</div>
+              <h3>Green Fleet</h3>
+              <p>Committed to sustainability with our growing fleet of clean-energy and low-emission buses.</p>
+            </div>
           </div>
         </div>
       </section>
@@ -98,27 +132,6 @@ function Home() {
         </div>
       </section>
 
-      <section className="section about-preview bg-light">
-        <div className="container">
-          <div className="about-preview-grid">
-            <div className="about-preview-content">
-              <h2 className="section-title">Serving Our Community for 34 Years</h2>
-              <p>GVC LTD has been a trusted name in student transportation throughout the Bronx. Our commitment to safety, reliability, and professionalism has made us the preferred choice for schools and parents alike.</p>
-              <ul className="about-stats"><li><span className="stat-number">50+</span> Buses in Fleet</li><li><span className="stat-number">100+</span> Professional Drivers</li><li><span className="stat-number">34+</span> Years of Service</li></ul>
-              <Link to="/about" className="btn btn-primary">Learn More About Us</Link>
-            </div>
-            <div className="about-preview-image">
-              <Link to="/fleet" className="fleet-image-link">
-                <img src="/fleet image.jpg" alt="GVC Fleet" className="fleet-preview-image" />
-                <div className="fleet-image-overlay">
-                  <span className="fleet-image-label">FLEET</span>
-                </div>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section className="section services-preview">
         <div className="container text-center">
           <h2 className="section-title">Our Services</h2>
@@ -130,6 +143,32 @@ function Home() {
             <div className="service-card"><div className="service-icon">🎉</div><h4>Charter Services</h4><p>Sports events and special occasions</p></div>
           </div>
           <Link to="/services" className="btn btn-secondary" style={{marginTop: '2rem'}}>View All Services</Link>
+        </div>
+      </section>
+
+      <section className="section fleet-preview bg-light">
+        <div className="container">
+          <div className="fleet-preview-grid">
+            <div className="fleet-preview-content">
+              <h2 className="section-title">Our Fleet</h2>
+              <p>GVC LTD operates a modern fleet of over 50 buses, including wheelchair-accessible vehicles and buses equipped with the latest safety technology.</p>
+              <ul className="fleet-features">
+                <li>GPS tracking on all vehicles</li>
+                <li>Interior and exterior cameras</li>
+                <li>Air conditioning</li>
+                <li>ADA compliant accessibility</li>
+              </ul>
+              <Link to="/fleet" className="btn btn-primary">View Our Fleet</Link>
+            </div>
+            <div className="fleet-preview-image">
+              <Link to="/fleet" className="fleet-image-link">
+                <img src="/fleet image.jpg" alt="GVC Fleet" className="fleet-img" />
+                <div className="fleet-image-overlay">
+                  <span className="fleet-image-label">FLEET</span>
+                </div>
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
