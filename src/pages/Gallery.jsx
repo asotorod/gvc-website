@@ -23,7 +23,7 @@ function Gallery() {
       >
         <div className="hero-overlay"></div>
         <div className="container hero-content">
-          <h1>📸 Photo Gallery</h1>
+          <h1>Photo Gallery</h1>
           <p>See our fleet, team, and community in action</p>
         </div>
       </section>
