@@ -16,14 +16,6 @@ function Services() {
     fetchHero();
   }, []);
 
-  const services = [
-    { icon: '🏫', title: 'School Route Transportation', description: 'Daily home-to-school and school-to-home transportation services.', features: ['GPS-tracked buses', 'Trained drivers', 'On-time guarantee', 'Parent notifications'] },
-    { icon: '🎯', title: 'Field Trips & Excursions', description: 'Safe transportation for educational field trips and outings.', features: ['Flexible scheduling', 'Competitive rates', 'Experienced drivers', 'All destinations'] },
-    { icon: '♿', title: 'Special Needs Transportation', description: 'Wheelchair-accessible buses and specially trained staff.', features: ['ADA compliant', 'Wheelchair lifts', 'Trained attendants', 'Individualized care'] },
-    { icon: '🎉', title: 'Charter Services', description: 'Charter bus services for sports, camps, and special occasions.', features: ['Flexible bookings', 'Group rates', 'Long distance', 'Weekend availability'] },
-    { icon: '🏕️', title: 'Summer Camp Transportation', description: 'Reliable camp transportation services.', features: ['Daily routes', 'Door-to-door', 'Air conditioning', 'Camp coordination'] },
-    { icon: '⚽', title: 'Athletic Events', description: 'Get your teams to games and practices safely.', features: ['Team scheduling', 'Equipment storage', 'All locations', 'Late returns'] }
-  ]
   return (
     <div className="services-page">
       <section 
@@ -33,11 +25,84 @@ function Services() {
         <div className="hero-overlay"></div>
         <div className="container hero-content">
           <h1>Our Services</h1>
-          <p>Comprehensive transportation solutions for every need</p>
+          <p>Safe, reliable student transportation in the Bronx</p>
         </div>
       </section>
-      <section className="section"><div className="container"><div className="services-grid">{services.map((service, index) => (<div key={index} className="service-detail-card"><div className="service-header"><span className="service-icon-large">{service.icon}</span><h3>{service.title}</h3></div><p>{service.description}</p><ul className="service-features">{service.features.map((feature, i) => (<li key={i}>✓ {feature}</li>))}</ul></div>))}</div></div></section>
-      <section className="section bg-light"><div className="container text-center"><h2 className="section-title">Need Transportation Services?</h2><p className="section-subtitle">Contact us today to discuss your transportation needs</p><Link to="/contact" className="btn btn-primary btn-large">Get a Quote</Link></div></section>
+
+      {/* Bus Transportation Services Section */}
+      <section className="section service-section">
+        <div className="container">
+          <div className="service-content-card">
+            <div className="service-icon-wrapper">
+              <span className="service-icon-large">🚌</span>
+            </div>
+            <h2>Bus Transportation Services in the Bronx</h2>
+            <p className="service-description">
+              School buses are the safest mode of transportation for getting children, including pre-school children, to and from school. GVC LTD provides the highest-rated bus transportation services in the Bronx, NY. We're also recognized by the Department of Education.
+            </p>
+            <div className="service-highlights">
+              <div className="highlight-item">
+                <span className="highlight-icon">🛡️</span>
+                <span>Highest Safety Ratings</span>
+              </div>
+              <div className="highlight-item">
+                <span className="highlight-icon">✓</span>
+                <span>DOE Recognized</span>
+              </div>
+              <div className="highlight-item">
+                <span className="highlight-icon">📍</span>
+                <span>Bronx, NY</span>
+              </div>
+              <div className="highlight-item">
+                <span className="highlight-icon">👶</span>
+                <span>All Ages Welcome</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Pre-School and Elementary Section */}
+      <section className="section service-section bg-light">
+        <div className="container">
+          <div className="service-content-card">
+            <div className="service-icon-wrapper">
+              <span className="service-icon-large">🎒</span>
+            </div>
+            <h2>Pre-School and Elementary Bus Transportation</h2>
+            <p className="service-description">
+              Our parents have peace of mind that their kids make it to school safely and on time with our bus transportation. We transport special-needs children who attend pre-school and elementary school, year round. Our professional drivers pick up your child from their home and bring them to and from school. Our DOE-certified matrons assist your child getting on and off our buses.
+            </p>
+            <div className="service-highlights">
+              <div className="highlight-item">
+                <span className="highlight-icon">🏠</span>
+                <span>Door-to-Door Service</span>
+              </div>
+              <div className="highlight-item">
+                <span className="highlight-icon">👩‍✈️</span>
+                <span>Professional Drivers</span>
+              </div>
+              <div className="highlight-item">
+                <span className="highlight-icon">👩‍🏫</span>
+                <span>DOE-Certified Matrons</span>
+              </div>
+              <div className="highlight-item">
+                <span className="highlight-icon">📅</span>
+                <span>Year Round Service</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Call to Action */}
+      <section className="section">
+        <div className="container text-center">
+          <h2 className="section-title">Need Transportation Services?</h2>
+          <p className="section-subtitle">Contact us today to discuss your transportation needs</p>
+          <Link to="/contact" className="btn btn-primary btn-large">Get a Quote</Link>
+        </div>
+      </section>
     </div>
   )
 }
