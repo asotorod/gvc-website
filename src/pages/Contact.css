@@ -4,7 +4,7 @@
   color: white;
   padding: var(--spacing-3xl) 0;
   text-align: center;
-  min-height: 400px;
+  min-height: 300px;
   display: flex;
   align-items: center;
 }
@@ -94,9 +94,5 @@
 
   .contact-page .page-hero h1 {
     font-size: 2rem;
-  }
-
-  .contact-page .page-hero {
-    min-height: 300px;
   }
 }
