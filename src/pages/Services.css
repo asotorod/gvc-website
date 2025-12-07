@@ -32,133 +32,141 @@
   opacity: 0.9;
 }
 
-/* Service Content Cards */
-.service-section {
-  padding: var(--spacing-3xl) 0;
+/* Split Service Sections */
+.service-section-split {
+  padding: 0;
 }
 
-.service-content-card {
-  background: white;
-  padding: var(--spacing-2xl);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-lg);
-  text-align: center;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.service-icon-wrapper {
-  margin-bottom: var(--spacing-lg);
-}
-
-.service-icon-large {
-  font-size: 4rem;
-  display: inline-block;
-}
-
-.service-content-card h2 {
-  font-size: 2rem;
-  color: var(--gvc-black);
-  margin-bottom: var(--spacing-lg);
-  position: relative;
-  display: inline-block;
-}
-
-.service-content-card h2::after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;
-  height: 4px;
-  background: var(--gvc-yellow);
-  border-radius: 2px;
-}
-
-.service-description {
-  font-size: 1.125rem;
-  line-height: 1.8;
-  color: var(--gvc-gray-dark);
-  margin-bottom: var(--spacing-xl);
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* Service Highlights */
-.service-highlights {
+.service-split-container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--spacing-lg);
-  margin-top: var(--spacing-xl);
-  padding-top: var(--spacing-xl);
-  border-top: 1px solid #eee;
+  grid-template-columns: 1fr 1fr;
+  min-height: 500px;
 }
 
-.highlight-item {
+.service-split-content {
+  padding: var(--spacing-3xl);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: var(--spacing-sm);
+  justify-content: center;
 }
 
-.highlight-icon {
-  font-size: 1.5rem;
-  width: 50px;
-  height: 50px;
-  background: var(--gvc-yellow-light);
-  border-radius: 50%;
+.service-split-content.dark {
+  background: var(--gvc-black);
+  color: white;
+}
+
+.service-split-content h2 {
+  font-size: 2rem;
+  margin-bottom: var(--spacing-lg);
+  line-height: 1.3;
+}
+
+.service-split-content.dark h2 {
+  color: white;
+}
+
+.service-split-content p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  opacity: 0.9;
+  margin-bottom: var(--spacing-xl);
+}
+
+.service-split-image {
+  background-size: cover;
+  background-position: center;
+  background-color: #f3f4f6;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.highlight-item span:last-child {
+.image-placeholder {
+  text-align: center;
+  color: #9ca3af;
+}
+
+.image-placeholder span {
+  font-size: 4rem;
+  display: block;
+  margin-bottom: var(--spacing-md);
+}
+
+.image-placeholder p {
   font-size: 0.9rem;
-  color: var(--gvc-gray-dark);
+}
+
+/* Service Badges */
+.service-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+.badge {
+  background: rgba(250, 204, 21, 0.2);
+  color: var(--gvc-yellow);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
   font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
 }
 
-/* Background Light */
-.service-section.bg-light {
-  background: #f9fafb;
+/* Reverse layout for alternating sections */
+.service-section-split.reverse .service-split-container {
+  direction: rtl;
 }
 
-.service-section.bg-light .service-content-card {
-  background: white;
+.service-section-split.reverse .service-split-content,
+.service-section-split.reverse .service-split-image {
+  direction: ltr;
 }
 
 /* Responsive */
+@media (max-width: 968px) {
+  .service-split-container {
+    grid-template-columns: 1fr;
+  }
+
+  .service-split-image {
+    min-height: 300px;
+    order: -1;
+  }
+
+  .service-section-split.reverse .service-split-container {
+    direction: ltr;
+  }
+
+  .service-section-split.reverse .service-split-image {
+    order: -1;
+  }
+
+  .service-split-content {
+    padding: var(--spacing-2xl);
+  }
+
+  .service-split-content h2 {
+    font-size: 1.5rem;
+  }
+}
+
 @media (max-width: 768px) {
   .services-page .page-hero h1 {
     font-size: 2rem;
   }
 
-  .service-content-card {
+  .service-split-content {
     padding: var(--spacing-xl);
   }
 
-  .service-content-card h2 {
-    font-size: 1.5rem;
+  .service-badges {
+    flex-direction: column;
   }
 
-  .service-description {
-    font-size: 1rem;
-  }
-
-  .service-highlights {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .service-icon-large {
-    font-size: 3rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .service-highlights {
-    grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-md);
+  .badge {
+    justify-content: center;
   }
 }
