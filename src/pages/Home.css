@@ -5,9 +5,25 @@
 .hero-title { font-size: 3.5rem; font-weight: 800; line-height: 1.1; margin-bottom: var(--spacing-lg); }
 .hero-subtitle { font-size: 1.25rem; color: #ccc; margin-bottom: var(--spacing-xl); line-height: 1.7; }
 .hero-buttons { display: flex; gap: var(--spacing-md); flex-wrap: wrap; }
+
+/* Feature Cards */
 .features-section { margin-top: -60px; position: relative; z-index: 10; }
 .feature-card { background: var(--gvc-white); padding: var(--spacing-xl); border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); text-align: center; }
-.feature-icon { font-size: 3rem; margin-bottom: var(--spacing-md); }
+.feature-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto var(--spacing-md);
+  background: var(--gvc-yellow-light);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gvc-yellow-dark);
+}
+.feature-icon svg {
+  width: 28px;
+  height: 28px;
+}
 .feature-card h3 { font-size: 1.25rem; margin-bottom: var(--spacing-sm); }
 .feature-card p { color: var(--gvc-gray); font-size: 0.95rem; }
 
@@ -94,7 +110,7 @@
   color: rgba(255, 255, 255, 0.6);
 }
 
-/* Awards Section - Redesigned */
+/* Awards Section */
 .awards-section { background: var(--gvc-white); padding: var(--spacing-3xl) 0; }
 .award-image-container { margin: var(--spacing-xl) auto; max-width: 500px; }
 .award-image { width: 100%; height: auto; border-radius: var(--radius-lg); box-shadow: var(--shadow-xl); }
@@ -105,41 +121,112 @@
 .award-description h3 { font-size: 1.25rem; margin-bottom: var(--spacing-md); color: var(--gvc-black); }
 .award-description p { color: var(--gvc-gray-dark); line-height: 1.8; margin: 0; }
 
-.about-preview-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-3xl); align-items: center; }
-.about-preview-content p { color: var(--gvc-gray); margin-bottom: var(--spacing-xl); line-height: 1.8; }
-.about-stats { list-style: none; display: flex; gap: var(--spacing-xl); margin-bottom: var(--spacing-xl); }
-.about-stats li { text-align: center; }
-.stat-number { display: block; font-size: 2.5rem; font-weight: 800; color: var(--gvc-yellow); }
-.about-preview-image { display: flex; justify-content: center; }
-
-/* Fleet Image Link with Label Overlay */
-.fleet-image-link { position: relative; display: block; width: 100%; max-width: 450px; border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-xl); transition: all var(--transition-normal); }
-.fleet-image-link:hover { transform: scale(1.02); box-shadow: 0 20px 40px rgba(0,0,0,0.2); }
-.fleet-preview-image { width: 100%; height: auto; display: block; }
-.fleet-image-overlay { position: absolute; inset: 0; background: rgba(0, 0, 0, 0.35); display: flex; align-items: center; justify-content: center; transition: all var(--transition-normal); }
-.fleet-image-link:hover .fleet-image-overlay { background: rgba(0, 0, 0, 0.5); }
-.fleet-image-label { color: white; font-size: 2.5rem; font-weight: 800; letter-spacing: 0.3em; text-shadow: 2px 2px 8px rgba(0,0,0,0.5); }
-
-.image-placeholder { width: 100%; max-width: 400px; aspect-ratio: 4/3; background: linear-gradient(135deg, var(--gvc-yellow) 0%, var(--gvc-yellow-dark) 100%); border-radius: var(--radius-xl); display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: 5rem; box-shadow: var(--shadow-xl); }
-.image-placeholder p { font-size: 1.25rem; font-weight: 700; color: var(--gvc-black); margin-top: var(--spacing-sm); }
+/* Services Preview */
 .service-card { padding: var(--spacing-xl); background: var(--gvc-gray-light); border-radius: var(--radius-lg); transition: all var(--transition-normal); }
 .service-card:hover { background: var(--gvc-yellow); transform: translateY(-4px); }
 .service-icon { font-size: 2.5rem; margin-bottom: var(--spacing-md); }
 .service-card h4 { margin-bottom: var(--spacing-sm); }
 .service-card p { color: var(--gvc-gray); font-size: 0.9rem; }
 .service-card:hover p { color: var(--gvc-gray-dark); }
+
+/* Fleet Preview */
+.fleet-preview-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-3xl);
+  align-items: center;
+}
+
+.fleet-preview-content p {
+  color: var(--gvc-gray);
+  margin-bottom: var(--spacing-lg);
+  line-height: 1.8;
+}
+
+.fleet-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--spacing-xl);
+}
+
+.fleet-features li {
+  padding: 8px 0;
+  padding-left: 24px;
+  position: relative;
+  color: var(--gvc-gray-dark);
+}
+
+.fleet-features li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--gvc-yellow-dark);
+  font-weight: 700;
+}
+
+.fleet-preview-image {
+  display: flex;
+  justify-content: center;
+}
+
+.fleet-image-link {
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: 450px;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+  transition: all var(--transition-normal);
+}
+
+.fleet-image-link:hover {
+  transform: scale(1.02);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.fleet-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.fleet-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-normal);
+}
+
+.fleet-image-link:hover .fleet-image-overlay {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.fleet-image-label {
+  color: white;
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: 0.3em;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+}
+
+/* CTA Section */
 .cta-section { background: var(--gvc-yellow); padding: var(--spacing-3xl) 0; }
 .cta-section h2 { font-size: 2rem; margin-bottom: var(--spacing-md); }
 .cta-section p { color: var(--gvc-gray-dark); margin-bottom: var(--spacing-xl); }
 
+/* Responsive */
 @media (max-width: 1024px) {
   .hero-title { font-size: 2.5rem; }
-  .about-preview-grid { grid-template-columns: 1fr; }
-  .about-stats { justify-content: center; }
   .award-year { font-size: 2.5rem; }
   .mission-grid { grid-template-columns: 1fr; gap: var(--spacing-2xl); }
   .mission-stats { flex-direction: row; flex-wrap: wrap; justify-content: center; }
   .mission-stat-card { flex: 1; min-width: 200px; }
+  .fleet-preview-grid { grid-template-columns: 1fr; }
+  .fleet-preview-image { order: -1; }
 }
 
 @media (max-width: 768px) {
@@ -147,7 +234,6 @@
   .hero-title { font-size: 2rem; }
   .hero-buttons { flex-direction: column; }
   .features-section { margin-top: -40px; }
-  .about-stats { flex-direction: column; gap: var(--spacing-md); }
   .award-years { gap: var(--spacing-md); }
   .award-year { font-size: 2rem; }
   .award-year-divider { height: 30px; }
