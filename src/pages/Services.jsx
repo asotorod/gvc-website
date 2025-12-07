@@ -5,15 +5,30 @@ import './Services.css'
 
 function Services() {
   const [heroImage, setHeroImage] = useState(null);
+  const [transportationImage, setTransportationImage] = useState(null);
+  const [preschoolImage, setPreschoolImage] = useState(null);
 
   useEffect(() => {
-    const fetchHero = async () => {
+    const fetchImages = async () => {
+      // Fetch main hero
       const hero = await api.getHero('services');
       if (hero && hero.image_url) {
         setHeroImage(hero.image_url);
       }
+      
+      // Fetch transportation section image
+      const transportation = await api.getHero('services-transportation');
+      if (transportation && transportation.image_url) {
+        setTransportationImage(transportation.image_url);
+      }
+      
+      // Fetch preschool section image
+      const preschool = await api.getHero('services-preschool');
+      if (preschool && preschool.image_url) {
+        setPreschoolImage(preschool.image_url);
+      }
     };
-    fetchHero();
+    fetchImages();
   }, []);
 
   return (
@@ -30,66 +45,58 @@ function Services() {
       </section>
 
       {/* Bus Transportation Services Section */}
-      <section className="section service-section">
-        <div className="container">
-          <div className="service-content-card">
-            <div className="service-icon-wrapper">
-              <span className="service-icon-large">🚌</span>
-            </div>
+      <section className="section service-section-split">
+        <div className="service-split-container">
+          <div className="service-split-content dark">
             <h2>Bus Transportation Services in the Bronx</h2>
-            <p className="service-description">
+            <p>
               School buses are the safest mode of transportation for getting children, including pre-school children, to and from school. GVC LTD provides the highest-rated bus transportation services in the Bronx, NY. We're also recognized by the Department of Education.
             </p>
-            <div className="service-highlights">
-              <div className="highlight-item">
-                <span className="highlight-icon">🛡️</span>
-                <span>Highest Safety Ratings</span>
-              </div>
-              <div className="highlight-item">
-                <span className="highlight-icon">✓</span>
-                <span>DOE Recognized</span>
-              </div>
-              <div className="highlight-item">
-                <span className="highlight-icon">📍</span>
-                <span>Bronx, NY</span>
-              </div>
-              <div className="highlight-item">
-                <span className="highlight-icon">👶</span>
-                <span>All Ages Welcome</span>
-              </div>
+            <div className="service-badges">
+              <span className="badge">🛡️ Highest Safety Ratings</span>
+              <span className="badge">✓ DOE Recognized</span>
+              <span className="badge">📍 Bronx, NY</span>
+              <span className="badge">👶 All Ages Welcome</span>
             </div>
+          </div>
+          <div 
+            className="service-split-image"
+            style={transportationImage ? { backgroundImage: `url(${transportationImage})` } : {}}
+          >
+            {!transportationImage && (
+              <div className="image-placeholder">
+                <span>🚌</span>
+                <p>Upload image in Portal CMS</p>
+              </div>
+            )}
           </div>
         </div>
       </section>
 
       {/* Pre-School and Elementary Section */}
-      <section className="section service-section bg-light">
-        <div className="container">
-          <div className="service-content-card">
-            <div className="service-icon-wrapper">
-              <span className="service-icon-large">🎒</span>
-            </div>
+      <section className="section service-section-split reverse">
+        <div className="service-split-container">
+          <div 
+            className="service-split-image"
+            style={preschoolImage ? { backgroundImage: `url(${preschoolImage})` } : {}}
+          >
+            {!preschoolImage && (
+              <div className="image-placeholder">
+                <span>🎒</span>
+                <p>Upload image in Portal CMS</p>
+              </div>
+            )}
+          </div>
+          <div className="service-split-content dark">
             <h2>Pre-School and Elementary Bus Transportation</h2>
-            <p className="service-description">
+            <p>
               Our parents have peace of mind that their kids make it to school safely and on time with our bus transportation. We transport special-needs children who attend pre-school and elementary school, year round. Our professional drivers pick up your child from their home and bring them to and from school. Our DOE-certified matrons assist your child getting on and off our buses.
             </p>
-            <div className="service-highlights">
-              <div className="highlight-item">
-                <span className="highlight-icon">🏠</span>
-                <span>Door-to-Door Service</span>
-              </div>
-              <div className="highlight-item">
-                <span className="highlight-icon">👩‍✈️</span>
-                <span>Professional Drivers</span>
-              </div>
-              <div className="highlight-item">
-                <span className="highlight-icon">👩‍🏫</span>
-                <span>DOE-Certified Matrons</span>
-              </div>
-              <div className="highlight-item">
-                <span className="highlight-icon">📅</span>
-                <span>Year Round Service</span>
-              </div>
+            <div className="service-badges">
+              <span className="badge">🏠 Door-to-Door Service</span>
+              <span className="badge">👩‍✈️ Professional Drivers</span>
+              <span className="badge">👩‍🏫 DOE-Certified Matrons</span>
+              <span className="badge">📅 Year Round Service</span>
             </div>
           </div>
         </div>
