@@ -8,6 +8,7 @@ import Green from './pages/Green'
 import Gallery from './pages/Gallery'
 import Events from './pages/Events'
 import Careers from './pages/Careers'
+import Apply from './pages/Apply'
 import Contact from './pages/Contact'
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route path="gallery" element={<Gallery />} />
         <Route path="events" element={<Events />} />
         <Route path="careers" element={<Careers />} />
+        <Route path="apply" element={<Apply />} />
         <Route path="contact" element={<Contact />} />
       </Route>
     </Routes>
