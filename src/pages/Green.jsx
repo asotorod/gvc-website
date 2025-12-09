@@ -4,7 +4,7 @@ import './Green.css'
 
 // Helper function to convert YouTube/Vimeo URLs to embed URLs
 const getEmbedUrl = (url) => {
-  if (!url) return null;
+  if (!url || typeof url !== 'string') return null;
   
   // YouTube
   const youtubeMatch = url.match(/(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
@@ -18,14 +18,18 @@ const getEmbedUrl = (url) => {
     return `https://player.vimeo.com/video/${vimeoMatch[1]}`;
   }
   
-  // Direct URL (MP4)
+  // Direct URL (MP4, S3, etc.)
   return url;
 };
 
-// Check if URL is a direct video file
+// Check if URL is a direct video file (S3 or direct MP4/WebM)
 const isDirectVideo = (url) => {
-  if (!url) return false;
-  return url.match(/\.(mp4|webm|ogg)$/i);
+  if (!url || typeof url !== 'string') return false;
+  // Check for common video extensions or S3 URLs
+  return url.match(/\.(mp4|webm|ogg)($|\?)/i) || 
+         url.includes('s3.amazonaws.com') || 
+         url.includes('.s3.') ||
+         (!url.includes('youtube') && !url.includes('vimeo'));
 };
 
 function Green() {
@@ -65,9 +69,12 @@ function Green() {
     fetchData();
   }, []);
 
-  const videoUrl = pageContent.video_url;
+  // Safely get video URL as string
+  const videoUrl = typeof pageContent.video_url === 'string' ? pageContent.video_url : 
+                   (pageContent.video_url?.content || null);
   const videoTitle = pageContent.video_title || 'See Our Green Initiative in Action';
   const embedUrl = getEmbedUrl(videoUrl);
+  const isDirect = isDirectVideo(videoUrl);
 
   return (
     <div className="green-page">
@@ -92,17 +99,17 @@ function Green() {
       </section>
 
       {/* Video Section - Only shows if video_url is set in CMS */}
-      {videoUrl && embedUrl && (
+      {videoUrl && (
         <section className="section video-section">
           <div className="container">
             <div className="video-container">
               <h2 className="video-title">{videoTitle}</h2>
               <div className="video-wrapper">
-                {isDirectVideo(videoUrl) ? (
+                {isDirect ? (
                   <video 
                     controls 
                     className="video-player"
-                    poster=""
+                    playsInline
                   >
                     <source src={videoUrl} type="video/mp4" />
                     Your browser does not support the video tag.
