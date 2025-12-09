@@ -30,6 +30,18 @@ const api = {
     return response.json();
   },
 
+  // Intro Video
+  async getIntroVideo() {
+    try {
+      const response = await fetch(`${API_BASE_URL}/api/public/intro-video`);
+      if (!response.ok) return null;
+      return response.json();
+    } catch (error) {
+      console.error('Error fetching intro video:', error);
+      return null;
+    }
+  },
+
   // Careers
   async getCareers() {
     const response = await fetch(`${API_BASE_URL}/api/public/careers`);
