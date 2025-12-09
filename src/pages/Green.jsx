@@ -2,30 +2,17 @@ import { useState, useEffect } from 'react'
 import api from '../services/api'
 import './Green.css'
 
-// Helper function to convert YouTube/Vimeo URLs to embed URLs
-const getEmbedUrl = (url) => {
-  if (!url || typeof url !== 'string') return null;
-  
-  // YouTube
-  const youtubeMatch = url.match(/(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
-  if (youtubeMatch) {
-    return `https://www.youtube.com/embed/${youtubeMatch[1]}`;
-  }
-  
-  // Vimeo
-  const vimeoMatch = url.match(/(?:vimeo\.com\/)(\d+)/);
-  if (vimeoMatch) {
-    return `https://player.vimeo.com/video/${vimeoMatch[1]}`;
-  }
-  
-  // Direct URL (MP4, S3, etc.)
-  return url;
+// Helper to extract content from CMS response
+const getContent = (data) => {
+  if (!data) return null;
+  if (typeof data === 'string') return data;
+  if (typeof data === 'object' && data.content) return data.content;
+  return null;
 };
 
 // Check if URL is a direct video file (S3 or direct MP4/WebM)
 const isDirectVideo = (url) => {
   if (!url || typeof url !== 'string') return false;
-  // Check for common video extensions or S3 URLs
   return url.match(/\.(mp4|webm|ogg)($|\?)/i) || 
          url.includes('s3.amazonaws.com') || 
          url.includes('.s3.') ||
@@ -48,17 +35,9 @@ function Green() {
         
         // Fetch page content (including video)
         const content = await api.getPageContent('green');
+        console.log('Green page content:', content); // Debug log
         if (content) {
-          // Convert array to object keyed by section
-          const contentObj = {};
-          if (Array.isArray(content)) {
-            content.forEach(item => {
-              contentObj[item.section] = item.content;
-            });
-          } else {
-            Object.assign(contentObj, content);
-          }
-          setPageContent(contentObj);
+          setPageContent(content);
         }
       } catch (error) {
         console.error('Error fetching green page data:', error);
@@ -69,11 +48,18 @@ function Green() {
     fetchData();
   }, []);
 
-  // Safely get video URL as string
-  const videoUrl = typeof pageContent.video_url === 'string' ? pageContent.video_url : 
-                   (pageContent.video_url?.content || null);
-  const videoTitle = pageContent.video_title || 'See Our Green Initiative in Action';
-  const embedUrl = getEmbedUrl(videoUrl);
+  // Extract content values using helper
+  const videoUrl = getContent(pageContent.video_url);
+  const videoTitle = getContent(pageContent.video_title) || 'See Our Green Initiative in Action';
+  const pageTitle = getContent(pageContent.page_title) || 'Green Initiative';
+  const introText = getContent(pageContent.intro_text) || 'Our commitment to a sustainable future';
+  const initiative1Title = getContent(pageContent.initiative_1_title) || 'Electric Buses';
+  const initiative1Text = getContent(pageContent.initiative_1_text) || "We're adding electric buses to our fleet, producing zero direct emissions.";
+  const initiative2Title = getContent(pageContent.initiative_2_title) || 'Propane Buses';
+  const initiative2Text = getContent(pageContent.initiative_2_text) || 'Our propane-powered buses produce significantly fewer emissions than diesel.';
+  const initiative3Title = getContent(pageContent.initiative_3_title) || 'Eco-Friendly Practices';
+  const initiative3Text = getContent(pageContent.initiative_3_text) || 'From efficient routing to recycling programs at our facilities.';
+
   const isDirect = isDirectVideo(videoUrl);
 
   return (
@@ -84,8 +70,8 @@ function Green() {
       >
         <div className="hero-overlay"></div>
         <div className="container hero-content">
-          <h1>🌿 {pageContent.page_title || 'Green Initiative'}</h1>
-          <p>{pageContent.intro_text || 'Our commitment to a sustainable future'}</p>
+          <h1>🌿 {pageTitle}</h1>
+          <p>{introText}</p>
         </div>
       </section>
 
@@ -116,7 +102,7 @@ function Green() {
                   </video>
                 ) : (
                   <iframe
-                    src={embedUrl}
+                    src={videoUrl}
                     title={videoTitle}
                     className="video-iframe"
                     frameBorder="0"
@@ -135,18 +121,18 @@ function Green() {
           <div className="grid grid-3">
             <div className="green-card">
               <div className="green-icon">⚡</div>
-              <h3>{pageContent.initiative_1_title || 'Electric Buses'}</h3>
-              <p>{pageContent.initiative_1_text || "We're adding electric buses to our fleet, producing zero direct emissions."}</p>
+              <h3>{initiative1Title}</h3>
+              <p>{initiative1Text}</p>
             </div>
             <div className="green-card">
               <div className="green-icon">🌱</div>
-              <h3>{pageContent.initiative_2_title || 'Propane Buses'}</h3>
-              <p>{pageContent.initiative_2_text || 'Our propane-powered buses produce significantly fewer emissions than diesel.'}</p>
+              <h3>{initiative2Title}</h3>
+              <p>{initiative2Text}</p>
             </div>
             <div className="green-card">
               <div className="green-icon">♻️</div>
-              <h3>{pageContent.initiative_3_title || 'Eco-Friendly Practices'}</h3>
-              <p>{pageContent.initiative_3_text || 'From efficient routing to recycling programs at our facilities.'}</p>
+              <h3>{initiative3Title}</h3>
+              <p>{initiative3Text}</p>
             </div>
           </div>
         </div>
