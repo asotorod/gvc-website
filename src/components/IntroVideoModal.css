@@ -1,0 +1,134 @@
+.intro-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.intro-modal-content {
+  background: #1a1a1a;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 900px;
+  max-height: 90vh;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  animation: slideUp 0.4s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.intro-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  background: linear-gradient(135deg, #FFD700 0%, #FFC107 100%);
+}
+
+.intro-modal-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #000;
+}
+
+.intro-skip-btn {
+  background: rgba(0, 0, 0, 0.2);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #000;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.intro-skip-btn:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.intro-video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 aspect ratio */
+  background: #000;
+}
+
+.intro-video-player,
+.intro-video-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.intro-video-player {
+  object-fit: contain;
+}
+
+.intro-close-btn {
+  display: block;
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, #FFD700 0%, #FFC107 100%);
+  border: none;
+  font-size: 16px;
+  font-weight: 700;
+  color: #000;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.intro-close-btn:hover {
+  background: linear-gradient(135deg, #FFC107 0%, #FFB300 100%);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .intro-modal-content {
+    width: 95%;
+    border-radius: 12px;
+  }
+
+  .intro-modal-header {
+    padding: 12px 16px;
+  }
+
+  .intro-modal-title {
+    font-size: 16px;
+  }
+
+  .intro-skip-btn {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+
+  .intro-close-btn {
+    padding: 14px;
+    font-size: 15px;
+  }
+}
