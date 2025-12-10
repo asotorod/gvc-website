@@ -24,6 +24,13 @@
   object-fit: cover;
 }
 
+/* Mobile: contain video so it's not cut off */
+@media (max-width: 768px), (orientation: portrait) {
+  .intro-video {
+    object-fit: contain;
+  }
+}
+
 .intro-btn {
   position: absolute;
   padding: 12px 28px;
