@@ -68,17 +68,23 @@
 }
 
 .video-wrapper {
-  position: relative;
-  width: 100%;
-  padding-bottom: 56.25%; /* 16:9 aspect ratio */
-  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
 }
 
-.video-iframe,
-.video-player {
+/* For iframes (YouTube/Vimeo) - keep 16:9 aspect ratio */
+.video-wrapper:has(.video-iframe) {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  background: #000;
+}
+
+.video-iframe {
   position: absolute;
   top: 0;
   left: 0;
@@ -87,9 +93,13 @@
   border: none;
 }
 
+/* For direct video files - auto size to video dimensions */
 .video-player {
-  object-fit: contain; /* Changed from cover to contain - shows full video */
-  background: #000;
+  max-width: 100%;
+  max-height: 70vh;
+  width: auto;
+  height: auto;
+  border-radius: var(--radius-lg);
 }
 
 /* Green Cards */
@@ -155,6 +165,10 @@
   
   .video-title {
     font-size: 1.5rem;
+  }
+  
+  .video-player {
+    max-height: 50vh;
   }
   
   .goals-list {
