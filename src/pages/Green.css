@@ -88,7 +88,8 @@
 }
 
 .video-player {
-  object-fit: cover;
+  object-fit: contain; /* Changed from cover to contain - shows full video */
+  background: #000;
 }
 
 /* Green Cards */
